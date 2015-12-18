@@ -1,0 +1,13 @@
+%h1.text-center Users
+%br
+
+%div.text-right
+  = link_to "Sign Up", new_user_path
+
+%div.text-center
+  - @users.each do |user|
+    %div
+      %span
+        = image_tag "#{user.profile_image_uri}", style: "max-width: 75px; height: auto;"
+      %span
+        = user.handle

@@ -1,0 +1,10 @@
+%h1.text-center User
+%h3.text-center Hello #{@user.handle}
+
+%div.text-center
+  %div
+    = image_tag "#{@user.profile_image_uri}", style: "max-width: 150px; height: auto"
+  %div
+    - @user.mumbles.each do |mumble|
+      %div
+        = mumble

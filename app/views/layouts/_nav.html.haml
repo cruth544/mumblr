@@ -1,0 +1,27 @@
+%nav.navbar.navbar-inverse
+  .container
+    .container-fluid
+      .navbar-header
+        = link_to root_path, class: "navbar-brand" do
+          = image_tag "mumblr-logo-white.png", class: "nav-logo"
+        %button.navbar-toggle.collapsed.navbar-right{"aria-expanded" => "false", "data-target" => "#nav-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      #nav-collapse.collapse.navbar-collapse.navbar-right
+        = form_tag mumbles_path, id: "search", class: "navbar-form", method: :get do
+          .form-group
+            = text_field_tag :search, params[:search], {class: "form-control", placeholder: "Search for mumble"}
+          .btn.btn-default{:onclick => "document.getElementById('search').submit()"}
+            %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
+        - if current_user
+          = link_to('Your profile', user_path(current_user), class: "btn btn-default navbar-btn", type: "button") if params[:controller] != "users"
+          = link_to 'Log out', session_path, class: "btn btn-default navbar-btn", type: "button", method: :delete
+        - else
+          = link_to "Log in", new_session_path, class: "btn btn-default navbar-btn", type: "button"
+          = link_to "Register a new account", new_user_path, class: "btn btn-default navbar-btn", type: "button"
+      / collapse navbar-collapse navbar-right
+    / container-fluid
+  / container
+/ navbar navbar-inverse

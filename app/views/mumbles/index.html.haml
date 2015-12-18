@@ -1,0 +1,14 @@
+%h1.text-center Mumbles Homepage
+
+%div.text-center
+  - @mumbles.each do |mumble|
+    %table.table.lightbox
+      %tr
+        %th.text-center
+          = mumble.user.handle
+      %tr
+        %td
+          = image_tag "#{mumble.image_uri}", style: "max-width: 60%; height: auto"
+      %tr
+        %td
+          Likes: #{mumble.likes}
