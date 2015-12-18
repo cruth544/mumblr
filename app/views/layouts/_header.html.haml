@@ -5,8 +5,8 @@
     .caption.text-over-image
       %h1= @user.handle
       - if params[:action] == "show"
-        %p= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-primary btn-lg", role: "button"
+        %p= link_to "Create a mumble", new_mumble_path(@user), class: "btn btn-primary btn-lg", role: "button"
       - else
-        %p= link_to "Create a mumble", user_path(@user), class: "btn btn-primary btn-lg", role: "button"
+        %p= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-primary btn-lg", role: "button"
   %h3
     %em= @mumblr_message || "Welcome to Mumblr…"

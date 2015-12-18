@@ -1,2 +1,11 @@
-%h1 Mumbles#new
-%p Find me in app/views/mumbles/new.html.haml
+%h1 New Mumble
+
+= form_for @mumble do |f|
+  %div
+    = f.label "Image URL"
+    = f.text_field :image_uri
+  %div
+    = f.label "I want yo Body"
+    = f.text_area :text
+
+  = f.submit "Create"

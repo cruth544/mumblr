@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'sessions/new' => 'sessions#new', as: :new_session
   post 'sessions/new' => 'sessions#create', as: :create_session
 
+  get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+  delete 'sessions/destroy' => 'sessions#destroy'
+
   resources :mumbles
   resources :users
 

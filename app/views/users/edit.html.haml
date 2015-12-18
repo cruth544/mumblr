@@ -1,2 +1,15 @@
-%h1 Users#edit
-%p Find me in app/views/users/edit.html.haml
+%h1 Edit
+
+= form_for @user do |f|
+  / - flash.each do |key, value|
+  /   %div{:class => key, :style => "color: blue"}
+  /     = value
+  %div
+    = f.label :handle
+    = f.text_field :handle
+  %div
+    = f.label "Image"
+    = f.text_field :profile_image_uri
+
+  = f.submit "Create"
+
