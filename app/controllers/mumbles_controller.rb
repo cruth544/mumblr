@@ -1,7 +1,8 @@
 class MumblesController < ApplicationController
 
   def index
-    @mumbles = Mumble.all
+    # @mumbles = Mumble.all
+    @mumbles = reverse_mumbles Mumble.all
   end
 
   def show
@@ -32,8 +33,17 @@ class MumblesController < ApplicationController
   def destroy
   end
 
+  private
   def mumble_params
     params.require(:mumble).permit(:image_uri, :text)
+  end
+
+  def reverse_mumbles mumble_list
+    tmp_mumble_list = []
+    mumble_list.each do |mumble|
+      tmp_mumble_list << mumble
+    end
+    tmp_mumble_list.reverse
   end
 
 end
